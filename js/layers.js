@@ -2538,7 +2538,7 @@ addLayer("sg", {
         exponent() { return ((Array.isArray(tmp.ma.mastered))?tmp.ma.mastered.includes(this.layer):false)?1.225:1.25 }, // Prestige currency exponent
 		base() { return ((Array.isArray(tmp.ma.mastered))?tmp.ma.mastered.includes(this.layer):false)?1.04:1.05 },
 		gainMult() { 
-			let mult = new Decimal(1);
+			let mult = new Decimal(100);
 			if (hasUpgrade("ss", 21)) mult = mult.div(1.2);
 			if ((Array.isArray(tmp.ma.mastered))?tmp.ma.mastered.includes(this.layer):false) mult = mult.div(1.1);
 			return mult;
