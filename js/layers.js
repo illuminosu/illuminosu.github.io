@@ -11,8 +11,8 @@ addLayer("p", {
         exponent() { return ((Array.isArray(tmp.ma.mastered))?tmp.ma.mastered.includes(this.layer):false)?0.75:0.5 }, // Prestige currency exponent
         gainMult() { // Calculate the multiplier for main currency from bonuses
             mult = new Decimal(1)
-			if (hasAchievement("a", 13)) mult = mult.times(1.6e50);
-			if (hasAchievement("a", 32)) mult = mult.times(1.5e60);
+			if (hasAchievement("a", 13)) mult = mult.times(1.1);
+			if (hasAchievement("a", 32)) mult = mult.times(2);
 			if (hasUpgrade("p", 21)) mult = mult.times(((Array.isArray(tmp.ma.mastered))?tmp.ma.mastered.includes(this.layer):false)?1e50:1.8);
 			if (hasUpgrade("p", 23)) mult = mult.times(upgradeEffect("p", 23));
 			if (hasUpgrade("p", 41)) mult = mult.times(upgradeEffect("p", 41));
@@ -27,7 +27,7 @@ addLayer("p", {
         },
         gainExp() { // Calculate the exponent on main currency from bonuses
             let exp = new Decimal(1)
-			if (hasUpgrade("p", 31)) exp = exp.times(1.1e50);
+			if (hasUpgrade("p", 31)) exp = exp.times(1.05);
 			return exp;
         },
         row: 0, // Row the layer is in on the tree (0 is the first row)
@@ -2538,7 +2538,7 @@ addLayer("sg", {
         exponent() { return ((Array.isArray(tmp.ma.mastered))?tmp.ma.mastered.includes(this.layer):false)?1.225:1.25 }, // Prestige currency exponent
 		base() { return ((Array.isArray(tmp.ma.mastered))?tmp.ma.mastered.includes(this.layer):false)?1.04:1.05 },
 		gainMult() { 
-			let mult = new Decimal(100);
+			let mult = new Decimal(1);
 			if (hasUpgrade("ss", 21)) mult = mult.div(1.2);
 			if ((Array.isArray(tmp.ma.mastered))?tmp.ma.mastered.includes(this.layer):false) mult = mult.div(1.1);
 			return mult;
@@ -4152,7 +4152,7 @@ addLayer("m", {
 			first: 0,
         }},
         color: "#eb34c0",
-        requires: new Decimal(1e28), // Can be a function that takes requirement increases into account
+        requires: new Decimal(1e285), // Can be a function that takes requirement increases into account
         resource: "magic", // Name of prestige currency
         baseResource: "hindrance spirit", // Name of resource prestige is based on
         baseAmount() {return player.h.points}, // Get the current amount of baseResource
