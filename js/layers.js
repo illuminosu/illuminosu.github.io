@@ -11,8 +11,8 @@ addLayer("p", {
         exponent() { return ((Array.isArray(tmp.ma.mastered))?tmp.ma.mastered.includes(this.layer):false)?0.75:0.5 }, // Prestige currency exponent
         gainMult() { // Calculate the multiplier for main currency from bonuses
             mult = new Decimal(1)
-			if (hasAchievement("a", 13)) mult = mult.times(1.1);
-			if (hasAchievement("a", 32)) mult = mult.times(2);
+			if (hasAchievement("a", 13)) mult = mult.times(1.6e50);
+			if (hasAchievement("a", 32)) mult = mult.times(1.5e60);
 			if (hasUpgrade("p", 21)) mult = mult.times(((Array.isArray(tmp.ma.mastered))?tmp.ma.mastered.includes(this.layer):false)?1e50:1.8);
 			if (hasUpgrade("p", 23)) mult = mult.times(upgradeEffect("p", 23));
 			if (hasUpgrade("p", 41)) mult = mult.times(upgradeEffect("p", 41));
@@ -27,7 +27,7 @@ addLayer("p", {
         },
         gainExp() { // Calculate the exponent on main currency from bonuses
             let exp = new Decimal(1)
-			if (hasUpgrade("p", 31)) exp = exp.times(1.05);
+			if (hasUpgrade("p", 31)) exp = exp.times(1.1e50);
 			return exp;
         },
         row: 0, // Row the layer is in on the tree (0 is the first row)
