@@ -9,7 +9,7 @@ let modInfo = {
     offlineLimit: 10,  // In hours
     initialStartPoints: new Decimal(10), // Used for hard resets and new players
 	endgame: new Decimal("e3.14e16"),
-	// specialEndgameText: "v1.3 Endgame: e3.14e16 Points",
+	specialEndgameText: "v1.3 Swaroop: e3.14e16 Points",
 }
 
 // Set your version in num and name
